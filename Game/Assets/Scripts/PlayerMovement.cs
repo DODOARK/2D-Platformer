@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private GameObject cam;
 
     private bool grounded;
 
@@ -17,9 +16,6 @@ public class PlayerMovement : MonoBehaviour
     {
         //Gets players rigidbody2d
         rb = GetComponent<Rigidbody2D>();
-
-        //Gets gameobject called main camera
-        cam = GameObject.Find("Main Camera");
     }
 
     // Update is called once per frame
@@ -27,9 +23,6 @@ public class PlayerMovement : MonoBehaviour
     {
         //Ground Test
         if (rb.velocity.y == 0f) { grounded = true; }else { grounded = false; }
-
-        //Move camera to player
-        cam.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
 
         //Jumping
         if (Input.GetKey("w") && grounded && rb.gravityScale == 1) { rb.AddForce(new Vector2(rb.velocity.x, jumpHeight), ForceMode2D.Impulse); }
