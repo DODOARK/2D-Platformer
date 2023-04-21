@@ -8,7 +8,7 @@ public class Lava : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    private GameObject deathText;
+    public GameObject deathText;
 
     private TextMeshProUGUI deathTextScript;
 
@@ -21,7 +21,6 @@ public class Lava : MonoBehaviour
     {
         //Gets players rigidbody2d
         rb = GameObject.Find("Player").GetComponent<Rigidbody2D>();
-        deathText = GameObject.Find("DeathText");
         deathTextScript = deathText.GetComponent<TextMeshProUGUI>();
         deathText.SetActive(false);
         animator = rb.gameObject.GetComponent<Animator>();
