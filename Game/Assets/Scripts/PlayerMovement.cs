@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         if (rb.velocity.y == 0f) { grounded = true; }else { grounded = false; }
 
         //Jumping
-        if (Input.GetKey("w") && grounded && rb.gravityScale == 1) { rb.AddForce(new Vector2(rb.velocity.x, jumpHeight), ForceMode2D.Impulse); }
+        if (Input.GetKey("w") && grounded && rb.gravityScale == 2) { rb.AddForce(new Vector2(rb.velocity.x, jumpHeight), ForceMode2D.Impulse); }
 
         //Zero gravity up/down movement
         if (Input.GetKey("w") && rb.gravityScale == 0) { rb.velocity = new Vector2(rb.velocity.x, moveSpeed); }

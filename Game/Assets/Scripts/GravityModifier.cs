@@ -27,6 +27,6 @@ public class GravityModifier : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         //Modifies player rb to default settings
-        rb.gravityScale = 1;
+        rb.gravityScale = 2;
     }
 }
