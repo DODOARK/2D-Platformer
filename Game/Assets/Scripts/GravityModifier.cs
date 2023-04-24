@@ -18,7 +18,7 @@ public class GravityModifier : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         //Modifies player rb to zero gravity
         rb.gravityScale = 0;

@@ -42,9 +42,33 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Foreground
+  - name: Gravity
+    uniqueID: 2514403743
+    locked: 0
+  - name: JumpPad
+    uniqueID: 3301484095
+    locked: 0
+  - name: Player
+    uniqueID: 1823967429
+    locked: 0
+  - name: Lava
+    uniqueID: 2758737831
+    locked: 0
+  - name: MovingPlatform
+    uniqueID: 4046674529
+    locked: 0
+  - name: Door
+    uniqueID: 4158256819
+    locked: 0
+  - name: Button
+    uniqueID: 1712392443
+    locked: 0
+  - name: Ground
     uniqueID: 1378121673
     locked: 0
-  - name: OverPlayer
-    uniqueID: 4071271943
+  - name: Goal
+    uniqueID: 40075559
+    locked: 0
+  - name: Text
+    uniqueID: 96102213
     locked: 0

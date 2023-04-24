@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Lava : MonoBehaviour
@@ -54,6 +53,6 @@ public class Lava : MonoBehaviour
     {
         //reloads scene after 2 seconds
         yield return new WaitForSecondsRealtime(2);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        ButtonActions.Restart();
     }
 }

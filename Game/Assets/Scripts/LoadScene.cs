@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ButtonActions : MonoBehaviour
+public class LoadScene : MonoBehaviour
 {
+    public string sceneName;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +18,8 @@ public class ButtonActions : MonoBehaviour
         
     }
 
-    public static void Restart()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public static void LoadScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
+        ButtonActions.LoadScene(sceneName);
     }
 }
