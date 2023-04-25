@@ -1,20 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
-public class Switch : MonoBehaviour
+public class SwitchMP : MonoBehaviour
 {
     private SpriteRenderer sr;
-    private Animator animator;
     public GameObject target;
+    private MovingPlatform MP;
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        sr.color = Color.red;
-        if (target.GetComponent<Animator>() != null)
+        MP = target.GetComponent<MovingPlatform>();
+        if (MP.active == true)
         {
-            animator = target.GetComponent<Animator>();
+            sr.color = Color.green;
+        }
+        else
+        {
+            sr.color = Color.red;
         }
     }
 
@@ -29,12 +34,12 @@ public class Switch : MonoBehaviour
         if (sr.color == Color.red && collision.name == "Player")
         {
             sr.color = Color.green;
-            animator.SetBool("Open", true);
+            MP.active = true;
         }
         else if (collision.name == "Player")
         {
             sr.color = Color.red;
-            animator.SetBool("Open", false);
+            MP.active = false;
         }
     }
 }

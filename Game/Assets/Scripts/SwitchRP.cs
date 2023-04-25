@@ -2,26 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Switch : MonoBehaviour
+public class SwitchRP : MonoBehaviour
 {
     private SpriteRenderer sr;
-    private Animator animator;
     public GameObject target;
+    private RotatingPlatform RP;
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        sr.color = Color.red;
-        if (target.GetComponent<Animator>() != null)
+        RP = target.GetComponent<RotatingPlatform>();
+        if (RP.active == true)
         {
-            animator = target.GetComponent<Animator>();
+            sr.color = Color.green;
+        }
+        else
+        {
+            sr.color = Color.red;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,12 +33,12 @@ public class Switch : MonoBehaviour
         if (sr.color == Color.red && collision.name == "Player")
         {
             sr.color = Color.green;
-            animator.SetBool("Open", true);
+            RP.active = true;
         }
         else if (collision.name == "Player")
         {
             sr.color = Color.red;
-            animator.SetBool("Open", false);
+            RP.active = false;
         }
     }
 }

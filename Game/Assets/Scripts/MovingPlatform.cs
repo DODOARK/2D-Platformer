@@ -9,6 +9,8 @@ public class MovingPlatform : MonoBehaviour
     public GameObject spot2;
     private GameObject nextTarget;
 
+    public bool active = false;
+
     public float moveSpeed = 0.01f;
 
     // Start is called before the first frame update
@@ -26,15 +28,18 @@ public class MovingPlatform : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (movingPlat.transform.position == spot1.transform.position)
+        if (active)
         {
-            nextTarget = spot2;
+            if (movingPlat.transform.position == spot1.transform.position)
+            {
+                nextTarget = spot2;
+            }
+            else if (movingPlat.transform.position == spot2.transform.position)
+            {
+                nextTarget = spot1;
+            }
+            UpdatePosition();
         }
-        else if (movingPlat.transform.position == spot2.transform.position)
-        {
-            nextTarget = spot1;
-        }
-        UpdatePosition();
     }
 
     void UpdatePosition()

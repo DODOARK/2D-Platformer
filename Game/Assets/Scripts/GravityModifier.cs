@@ -21,12 +21,18 @@ public class GravityModifier : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         //Modifies player rb to zero gravity
-        rb.gravityScale = 0;
+        if (collision.name == "Player")
+        {
+            rb.gravityScale = 0;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.name == "Player")
+        {
         //Modifies player rb to default settings
-        rb.gravityScale = 2;
+            rb.gravityScale = 2;
+        }
     }
 }

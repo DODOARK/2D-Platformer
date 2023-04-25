@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    private bool grounded;
+    public bool grounded;
 
     public float jumpHeight = 1f;
     public float moveSpeed = 1f;
@@ -21,11 +21,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Ground Test
-        if (rb.velocity.y == 0f) { grounded = true; }else { grounded = false; }
-
         //Jumping
-        if (Input.GetKey("w") && grounded && rb.gravityScale == 2) { rb.AddForce(new Vector2(rb.velocity.x, jumpHeight), ForceMode2D.Impulse); }
+        if (Input.GetKey("w") && grounded && rb.gravityScale == 2) { rb.AddForce(new Vector2(rb.velocity.x, jumpHeight), ForceMode2D.Impulse); grounded = false; }
 
         //Zero gravity up/down movement
         if (Input.GetKey("w") && rb.gravityScale == 0) { rb.velocity = new Vector2(rb.velocity.x, moveSpeed); }
